@@ -19,7 +19,7 @@ echo "[ ] standalone hosts-based-adblocking implementation "
 echo "[.] "
 
 # it still works on magisk, but not on apatch/ksu, warn user
-if [ ${KSU} = true ] || [ ${APATCH} = true ] ; then
+if command -v ksud >/dev/null 2>&1 || command -v apd >/dev/null 2>&1 ; then
 	pm path org.adaway > /dev/null 2>&1 && echo "[-] 🚨 This version may not work with AdAway 📛"
 fi
 
@@ -42,7 +42,7 @@ helper_mode=""
 
 # implement hosts_file_redirect helper mode
 # use if we find $MODDIR/.hfr_found 
-if [ ${APATCH} = true ] && [ -f $MODDIR/.hfr_found ]; then
+if command -v apd >/dev/null 2>&1 && [ -f $MODDIR/.hfr_found ]; then
 	target_hostsfile="/data/adb/hosts"
 	echo "[+] skkk's hosts_file_redirect found!"
 	echo "[+] running in helper mode"
