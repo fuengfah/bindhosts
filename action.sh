@@ -48,7 +48,7 @@ if command -v apd >/dev/null 2>&1 && [ -f $MODDIR/.hfr_found ]; then
 	echo "[+] running in helper mode"
 	helper_mode=" | hosts_file_redirect 💉"
 	# idk if needed, leaving to make sure
-	ls /data/adb/hosts > /dev/null 2>&1 || {
+	[ ! -f /data/adb/hosts ] && {
 		cat /system/etc/hosts > /data/adb/hosts
 		susfs_clone_perm "/data/adb/hosts" /system/etc/hosts
 		}
