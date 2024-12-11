@@ -23,7 +23,7 @@ mode=2
     plain bindhosts, mount --bind
        actually works on all managers but not really preferrable as it leaks a global mount
     Adaway compatible
-    This is selected when APatch is on OverlayFS mdoe as that offers better compatibility
+    This is selected when APatch is on OverlayFS mode as that offers better compatibility
     hiding: none at all
     
 mode=3
